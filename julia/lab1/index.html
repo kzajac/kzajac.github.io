@@ -58,24 +58,20 @@
             <ol> 
               <li> otwieramy konsole Julii
                 <li>wpisujemy using IJulia; notebook()
-                  <li>to powoduje postawienie lokalnie  serwera http, automatycznie otwiera sie
+                <li>to powoduje postawienie lokalnie  serwera http, automatycznie otwiera sie
  przegladarka i pojawia sie w niej webowa aplikacja do Julii, ktora laczy sie z tym serwerem czyli Jupiter (trzeba chwilke poczekac)
 
-  <li> Po kliknieciu na New u gory z lewej powinna byc do wyboru Julia 0.5.0. (obok Pythona)
-<li>Niestety jesli pakiet IJulia byl instalowany przez innego uzytkownika, to Jupiter sie   pojawia  w
-przegladarce po wpisaniu w Julii tych komend, tylko Julii nie mozna  w nim wybrac 
+                <li> Po kliknieciu na New u gory z lewej powinna byc do wyboru Julia 0.5.0. (obok Pythona)
+                <li>jeśli  Julii nie mozna   wybrać (nie pojawia sie ), to należy dokonać reinstalacji.
             </ol>
 <br>
-
-            Teraz jak na to zaradzic:
-
-1.  W konsoli julii robimy Pkg.rm("IJulia")
-
-2. recznie edytujemy plik REQUIRE w .julia\0.5 dopisujac tam IJulia  (powinny tam byc inne nazwy pakietow  Atom, PyPlot itd.), po prostu dopisujemy jeszcze jeden pakiet.
-
-3. W konsoli julii robimy Pkg.resolve(). Nie trzeba restartowac.
-
-Moze pojawic sie chwilowy blad przy sciaganiu pakietow, ale dopisalam tam drugie repo, wiec powinien mimo to sprobowac to drugie i to sciagnac.
+ Reinstalacja pakietu IJulia
+            <ol>
+              <li>W konsoli julii robimy Pkg.rm("IJulia")
+              <li>recznie edytujemy plik REQUIRE w Program Files\julia\.julia\0.5 dopisujac tam IJulia  (powinny tam byc inne nazwy pakietow  Atom, PyPlot itd.), po prostu dopisujemy jeszcze jeden pakiet.
+              <li>W konsoli julii robimy Pkg.resolve(). Moze pojawić się chwilowy błąd przy ściaganiu pakietow, ale wtedy julia powinna automatycznie użyć drugiego repozytorium 
+  ściagnąć pakiet.
+            </ol>
             </ul>
       </ul>
    <li>  
