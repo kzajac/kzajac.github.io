@@ -103,10 +103,41 @@
   
   
     </ul>
-  <h2> Laboratorium 1 - zadania</h2>
+  <h2> Laboratorium 1 - cwiczenia</h2>
   <ul>
     <li> Zapoznac sie z <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab1/Tutorial_1.ipynb>tutorialem 1</a>
       <li> Zapoznac sie z <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab1/tutorial_2.ipynb>tutorialem 2</a>
+  
+  </ul>
+  <h2> Laboratorium 2 - zadania </h2>
+  <ul>
+    <li> Zadanie z wykladu 5pkt
+      <li> Napisać funkcję, która bierze typ i wypisuje jego graf dziedziczenia np. w formie  "Any-->Number-->Real-->AbstractFloat-->Float16" (2pkt)
+       <li> Napisac prosta symulacje swiata zwiarzat (13 pkt):
+         <ul>
+           <li> zwierze moze byc typu Drapieznik lub Ofiara. Oba te typy powinny dzieciczyc po abstrakcyjnym typie Zwierze
+             <li> zwierzeta zyja na kwadratowej planszy NxN, N - dowolnie wybrana (ustalona) liczba. Kazde zwierze zajmuje jedna kratke
+         
+             <li> Napisac parametryczna funkcje dodawania zwierzecia  do swiata wg podanych wspolrzednych 
+             dzialajaca dla dowolnego typu pochodnego od Zwierze. Jesli miejsce jest zajete rzucany jest wyjatek.
+           
+              
+           <li> napisac parametryczna funkcje <i>odleglosc</i>, 
+             ktora oblicza odleglosc miedzy zwierzetami metryka taksowkowa.
+             Funkcja powinna akceptowac dowolne typy dziedziczace po typie Zwierze.
+             Przetesowac dzialanie.
+           <li>napisac funkcje <i>Interakcja</i>. Zademonstrowac i przetesowac mechanizm multiple dispatch 
+             <ul>
+             <li>Jesli pierwszym argumentem jest zmienna typu Drapieznik, a drugim zmienna typu  Ofiara, Ofiara znika ze swiata.
+             <li> Jesli pierwszym argumentem jest zmienna typu Ofiara, a druga typu Drapieznik ofiara ucieka w dowolne inne wolne miejsce
+              <li> Jesli obydwoma  argumentami sa Drapieznicy metoda zwraca odpowiednie  powitanie.
+                <li> Jesli obydwoma argumentami sa Ofiary metoda zwraca  odpowiednie powitanie.
+                  
+             </ul>
+              
+              < /ul> 
+      
+
   </ul>
 <P>
 <HR>
