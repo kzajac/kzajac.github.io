@@ -103,37 +103,38 @@
   
   
     </ul>
-  <h2> Laboratorium 1 - cwiczenia</h2>
+  <h2> Laboratorium 1 - ćwiczenia</h2>
   <ul>
-    <li> Zapoznac sie z <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab1/Tutorial_1.ipynb>tutorialem 1</a>
-      <li> Zapoznac sie z <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab1/Tutorial_2.ipynb>tutorialem 2</a>
+    <li> Zapoznać sie z <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab1/Tutorial_1.ipynb>tutorialem 1</a>
+      <li> Zapoznać sie z <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab1/Tutorial_2.ipynb>tutorialem 2</a>
   
   </ul>
   <h2> Laboratorium 2 - zadania </h2>
   <ul>
-    <li> Zadanie z wykladu 5pkt
+    <li> Zadanie wprowadzające z wykladu (dowolny algorytm z tablicą i pętlą) 5pkt
       <li> Napisać funkcję, która bierze typ i wypisuje jego graf dziedziczenia 
         np. w formie  "Any-->Number-->Real-->AbstractFloat-->Float16" (3pkt)
-       <li> Napisac prosta symulacje swiata zwiarzat (12 pkt):
+       <li> Napisać prostą symulację świata zwiarząt (12 pkt):
          <ul>
-           <li> zwierze moze byc typu Drapieznik lub Ofiara. Oba te typy powinny dzieciczyc po abstrakcyjnym typie Zwierze
-             <li> zwierzeta zyja na kwadratowej planszy NxN, N - dowolnie wybrana (ustalona) liczba. 
-               Kazde zwierze zajmuje jedna kratke
+           <li> zwierzę może być typu Drapieżnik lub Ofiara. Oba te typy powinny dziedziczyć po abstrakcyjnym typie Zwierzę
+             <li> zwierzęta żyją na kwadratowej planszy NxN, N - dowolnie wybrana (ustalona) liczba. 
+               Kazde zwierzę zajmuje jedną kratkę
          
-             <li> Napisac parametryczna funkcje dodawania zwierzecia  do swiata wg podanych wspolrzednych 
-             dzialajaca dla dowolnego typu pochodnego od Zwierze. Jesli miejsce jest zajete rzucany jest wyjatek. Przetestowac dodajac kilka zwierzat do swiata.
+             <li> Napisać parametryczną funkcję dodawania zwierzęcia  do swiata wg podanych współrzędnych 
+             działającą dla dowolnego typu pochodnego od Zwierzę. Jeśli miejsce jest zajęte rzucany jest wyjątek. 
+               Przetestować dodając kilka zwierząt do świata.
            
               
-           <li> napisac parametryczna funkcje <i>odleglosc</i>, 
-             ktora oblicza odleglosc miedzy zwierzetami metryka taksowkowa.
-             Funkcja powinna akceptowac dowolne typy dziedziczace po typie Zwierze.
-             Przetesowac dzialanie.
-           <li>napisac funkcje <i>interakcja</i>. Zademonstrowac i przetesowac mechanizm multiple dispatch 
+           <li> Napisać parametryczną funkcję <i>odleglość</i>, 
+             ktora oblicza odleglość miedzy zwierzętami <a href="https://en.wikipedia.org/wiki/Taxicab_geometry">metryką taksowkową</a> .
+             Funkcja powinna akceptować dowolne typy dziedziczące po typie Zwierzę.
+             Przetesować działanie.
+           <li>napisac funkcję <i>interakcja</i>. Zademonstrować i przetestować mechanizm multiple dispatch 
              <ul>
-             <li>Jesli pierwszym argumentem jest zmienna typu Drapieznik, a drugim zmienna typu  Ofiara, Ofiara znika ze swiata.
-             <li> Jesli pierwszym argumentem jest zmienna typu Ofiara, a druga typu Drapieznik ofiara ucieka w dowolne inne wolne miejsce
-              <li> Jesli obydwoma  argumentami sa Drapieznicy metoda zwraca odpowiednie  powitanie.
-                <li> Jesli obydwoma argumentami sa Ofiary metoda zwraca  odpowiednie powitanie.
+             <li>Jesli pierwszym argumentem jest zmienna typu Drapieżnik, a drugim zmienna typu  Ofiara, Ofiara znika ze swiata.
+             <li> Jesli pierwszym argumentem jest zmienna typu Ofiara, a druga typu Drapieżnik ofiara ucieka w dowolne inne wolne miejsce
+              <li> Jesli obydwoma  argumentami sa Drapieżnicy metoda zwraca string "Wrrrr".
+                <li> Jesli obydwoma argumentami sa Ofiary metoda zwraca  string "Beeee".
                   
              </ul>
               
