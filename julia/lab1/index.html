@@ -68,9 +68,8 @@
             </ol>
  Reinstalacja pakietu IJulia
             <ol>
-              <li>W konsoli julii robimy Pkg.rm("IJulia")
-              <li>recznie edytujemy plik REQUIRE w Program Files\julia\.julia\0.5 dopisujac tam IJulia  (powinny tam byc inne nazwy pakietow  Atom, PyPlot itd.), po prostu dopisujemy jeszcze jeden pakiet.
-              <li>W konsoli julii robimy Pkg.resolve(). Moze pojawić się chwilowy błąd przy ściaganiu pakietow, 
+              <li>W konsoli Julii robimy Pkg.rm("IJulia")
+              <li>W konsoli Julii wykonujemy Pkg.add("IJulia"). Moze pojawić się chwilowy błąd przy ściaganiu pakietow, 
                 ale wtedy julia powinna automatycznie użyć drugiego repozytorium i ściagnąć pakiet.
             </ol>
             </ul>
