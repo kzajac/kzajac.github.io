@@ -15,14 +15,21 @@
 <hr>
 <h2>Programowanie w języku Julia</h2>
 <hr>
- 
-  <h2> Laboratorium 2 - ćwiczenia</h2>
-  <ul>
-    <li> Uwaga: poniższe notebooki Jupitera  renderują się na stronie githuba do html, żeby ściągnąć wersję uruchamialną 
+<h2> Tutorial z wykładu</h2>
+	<ul>
+ 	<li> Uwaga: Notebooki Jupitera  renderują się na stronie githuba do html, żeby ściągnąć wersję uruchamialną 
       dla Jupitera należy wybrać opcję "Raw"
-    <li> Zapoznać się z <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab2/tutorial_lab2.ipynb>tutorialem</a>
-	<li> Przejrzeć wskazówki zawarte w <a href=http://docs.julialang.org/en/stable/manual/performance-tips/#man-performance-tips>Performance tips</a>. </li>
+		<li> <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab2/wyklad_performance.ipynb>Tutorial</a>
+	</ul>
+<h2> Materiały online
+	<ul>
+          <li><a href=http://docs.julialang.org/en/stable/manual/performance-tips/#man-performance-tips>Performance tips</a> </li>
+	</ul>	  
+<h2> Laboratorium 2 - ćwiczenia</h2>
+  <ul>
   
+    <li> <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab2/tutorial_lab2.ipynb> wstęp do zadań </a>
+	
   </ul>
 
   <h2> Laboratorium 2 - zadania </h2>
@@ -34,7 +41,7 @@
 			<li> Prześledzić działanie programu, używając narzędzi do generowania raportów (Profile.print oraz ProfileView.view()).</li>
 			<li> Sprawdzić, jak zmieniają się wyniki profilowania dla różnych wartości <a href=http://docs.julialang.org/en/stable/manual/profile/#configuration><i>sampling interval</i></a> profilera. Kiedy proporcje proporcje ilości czasu spędzonego w każdej z funkcji przestają odpowiadać rzeczywistości?</li>
 		</ul>
-       <li> Zoptymalizować program pod kątem wydajności (15 pkt):
+       <li> Zoptymalizować program pod kątem wydajności (10 pkt):
          <ul>
             <li>Pobrać przygotowany <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab2/graphs.jl>kod niezoptymalizowanego programu</a>. Jest to prosta biblioteka do reprezentacji grafów, która zawiera funkcje do tworzenia grafów w reprezentacji tablicowej i obiektowej, a także przykłady operacji wykonywanych na grafach (bfs, sprawdzanie cyklu Eulera) i funkcje wypisujące elementy grafu.</li>
 			<li>Na podstawie materiałów z ćwiczeń i wykładu znaleźć i poprawić fragmenty, które zostały napisane niezgodnie z zasadami tworzenia wydajnych aplikacji w Julii. Aby dostać maksymalną liczbę punktów, należy wykonać przynajmniej <b>5 (różnych) optymalizacji.</b></li>
@@ -43,6 +50,24 @@
 			Uwaga: Optymalizacje mogą dotyczyć zarówno niewydajnych operacji, nieprzejrzystego zarządzania typami, a także nieefektywnego zarządzania pamięcią! 
 			Poprawki nie powinny wpływać na wyniki działania programu.
          </ul>
+        <li> Konkurs na optymalizacje (max 5pkt)
+		<ul>
+			 <li> Osoby chcące wziąć udział proszone są o przesłanie zoptymalizowanego kodu w czystym pliku Julii
+				 Nazwisko_Imie.jl na adres maila prowadzącego grupę z tematem <i>Konkurs Julia 30.03</i>
+				 lub <i> Konkurs Julia 6.04 </i> w zależności od faktycznej daty trwania zajęć.
+				 <li> Termin: 18 kwiecień
+					 
+		         <li> W każdej grupie zostanie wybranych 6 najszybciej działających rozwiązań i zostaną przyznane punkty:
+				 <ul>
+					 <li>  miejsca I, II i III - 5pkt
+				  	 <li> mieksce IV - 4 pkt
+					 <li> miejsce V - 3 pkt
+				 	 <li> miejsce VI - 2 pkt
+					 <li> nagroda pocieszenia dla wszystkich pozostałych biorących udział - 1 pkt
+				 </ul>		  
+						
+		</ul>
+	</ul>
   </ul>
 <P>
 <HR>
