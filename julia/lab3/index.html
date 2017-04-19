@@ -1,1 +1,68 @@
+<HTML>
 
+<HEAD>
+<META http-equiv="content-type" content="text/html; charset=utf-8">
+<TITLE>Julia</TITLE>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="80%" HEIGHT="90%" BORDER="0" ALIGN=CENTER>
+<TR>
+<TD ALIGN=CENTER>
+<DIV ALIGN=left>
+
+<hr>
+<h2>Programowanie w języku Julia</h2>
+<hr>
+
+  <h2> Laboratorium 3 - zadania </h2>
+  <ul>
+  	   <li>Napisać funkcję generowaną, która oblicza średnią harmoniczną (5pkt):
+         <ul>
+			<li>Funkcja powinna przyjmować dowolną liczbę argumentów wykorzystując mechanizm varargs.</li>
+			<li>Przy pierwszym uruchomieniu dla danej liczby argumentów ma miejsce jej rozwinięcie w odpowiednie wyrażenie, składające się z operacji takich jak "/" czy "+".</li>
+			<li>Rozwinięcie nie powinno wykorzystywać pętli czy iterowania po kolekcjach!</li>
+		 </ul>
+	    	<br><br>
+       <li>Napisać makro, które wypełni tablicę elementami ciągu (15 pkt):
+         <ul>
+            <li>Ciąg jest zdefiniowany w postaci wyrażenia opisującego zależność rekurencyjną.</li>
+            <li>Tablica jest wcześniej zaalokowana, zawiera również początkowe wartości ciągu.</li>
+            <li>Przykładowe działanie gotowego makra. Poniższy kod:</li>
+            <code>y = zeros(10)</code><br>
+			<code>y[1:2] = [1, 1]</code><br>
+			<code>@fill_series y[t] = y[t-1] + y[t-2]</code><br>
+			<code>println(y)</code><br>
+			powinien wypisać<br>
+			<code>[1.0,1.0,2.0,3.0,5.0,8.0,13.0,21.0,34.0,55.0]</code><br>
+			<li>Podpowiedzi:
+				<ul>
+					<li>Wyrażęnie opisujące ciąg można łatwo przeglądać rekurencyjnie, w poszukiwaniu operacji odwołania się do tablicy (":ref").</li>
+					<li>Na podstawie wyrażeń w nich zawartych (takich jak np. "t+1", "t-3") można następnie wyznaczyć właściwy początek i koniec iterowania.</li>
+					<li>Samo makro powinno zwracać kod będący pętlą uzupełniającą kolejne wartości.</li>
+				</ul>
+			</li>
+	     </ul>
+	     	<br><br>
+  </ul>
+
+<P>
+<HR>
+<I>Bartosz Baliś, balis at agh edu pl</I>
+<BR>
+<I>Maciej Malawski, malawski at agh edu pl</I>
+<BR>
+<I>Katarzyna Rycerz, kzajac at agh edu pl</I>
+<BR>
+
+<P> <P>
+
+</DIV>
+</TR>
+</TD>
+</TABLE>
+
+</BODY>
+
+</HTML>
