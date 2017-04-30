@@ -45,7 +45,9 @@ function generate_random_graph()
     end
 
     for i in sample(1:N*N, K, replace=false)
-      A[i] = 1
+      row, col = ind2sub(size(A), i)
+      A[row,col] = 1
+      A[col,row] = 1
     end
     A
 end
