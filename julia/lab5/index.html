@@ -2,7 +2,7 @@
 <HTML>
 
 <HEAD>
-<META http-equiv="content-type" content="text/html; charset=utf-8">
+<META http-equiv="content-type" content="text/html; charset=iso-8859-2">
 <TITLE>Julia</TITLE>
 <link rel="stylesheet" type="text/css" href="../style.css">
 </HEAD>
@@ -33,16 +33,31 @@
 
   </ul> 
 <h2> Laboratorium 5 - zadania </h2>
-  <ul>
-  	  <li>Napisać program .... (6 pkt):
+  <ol>
+  	  <li>(6 pkt) Napisać program, w którym działają trzy zadania, z których 
+	       każdy w pętli wypisuje kilka razy kolejną liczbę (pierwszy "1", drugi "2", trzeci "3"). Proszę
+		  zapewnić, żeby liczby były wypisywane zawsze w kolejności 1 2 3 1 2 3 .... itd. 
+		  <ul>
+			  <li>niezależnie od kolejności uruchamiania zadań</li>
+			  <li>w dwóch wariantach: gdy zadania działają w jednym procesie i gdy działają w wielu procesach</li>
+		  </ul>
         <ul>
 			       <li>TODO</li>
 
          </ul>
-  	  <li>Napisać program .... (14 pkt):
+  	  <li>(14 pkt) Mając dany <A HREF=julia_set.jl>program</li> obliczający i rysujący 
+		  <A HREF="https://en.wikipedia.org/wiki/Julia_set">zbiór Julii</A>, napisać jego wersję równoległą w trzech wariantach: 
+	
           <ul>
-            <li><A HREF=julia_set.jl>zbior Julii...</li>
+		  <li>wykorzystując parallel for</li>
+		  <li>wykorzystując pmap</li>
+		  <li>w oparciu o mechanizm ręcznego rozdzielania zadań pomiędzy workerów opisany w sekcji 
+			  <A HREF="https://docs.julialang.org/en/stable/manual/parallel-computing/#id2">Shared arrays</A> 
+				   i objaśniony na wykładzie.</li>
 	  </ul>
+		  Proszę zmierzyć czas implementacji sekwencyjnej oraz każdego wariantu implementacji równoległej w zależności od liczby 
+		  workerów (od 1 do liczby rdzeni w procesorze). Porównanie proszę przedstawić na wykresie. 
+     </ol>
 	     	<br><br>
 
   </ul>
