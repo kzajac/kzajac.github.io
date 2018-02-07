@@ -1,0 +1,83 @@
+
+<HTML>
+
+<HEAD>
+<META http-equiv="content-type" content="text/html; charset=iso-8859-2">
+<TITLE>Julia</TITLE>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</HEAD>
+
+<BODY>
+<TABLE WIDTH="80%" HEIGHT="90%" BORDER="0" ALIGN=CENTER>
+<TR>
+<TD ALIGN=CENTER>
+<DIV ALIGN=left>
+
+<hr>
+<h2>Programowanie w języku Julia</h2>
+<hr>
+
+	
+        
+
+ <h2> Laboratorium 5 - ćwiczenia</h2>
+  <ul>
+
+  <li>Uwaga: Notebooki Jupytera  renderują się na stronie githuba do html, żeby ściągnąć wersję uruchamialną
+      dla Jupytera należy wybrać opcję "Raw"
+	  
+	 
+    <li>   <a href="https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab5/Rownolegle-short.ipynb">krótki tutorial wsprowadzający</a> </li>
+    <li>  mechanizm ręcznego rozdzielania zadań pomiędzy 
+		  workerów potrzebny w zadaniu  2 został wytłumaczony w piątek  na wykładzie (19 maja, 9:35), tutaj  
+	    <a href="https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab5/Wyklad_Rownolegle.ipynb"> link do wykładu </a>
+
+  </ul> 
+<h2> Laboratorium 5 - zadania </h2>
+  <ol>
+  	  <li>(6 pkt) Napisać program, w którym działają trzy zadania (w tym samym procesie), z których 
+	       każde wypisuje w pętli kilka razy kolejną liczbę (pierwsze "1", drugie "2", trzecie "3"). Proszę
+		  zapewnić, żeby liczby były wypisywane zawsze w kolejności 1 2 3 1 2 3 .... itd., <b>niezależnie od kolejności 
+		  uruchamiania zadań</b>. Uwaga: wysokość oceny będzie zależeć od poprawności i prostoty implementacji 
+		  (im prostsza tym lepsza). 
+
+		  <P>
+	  <li>(14 pkt) Mając dany <A HREF=julia_set.jl>program</A> obliczający i rysujący 
+		  <A HREF="https://en.wikipedia.org/wiki/Julia_set">zbiór Julii</A>, napisać jego wersję równoległą w trzech wariantach:
+		  (1) wykorzystując parallel for, (2) wykorzystując pmap, (3) w oparciu o mechanizm ręcznego rozdzielania zadań pomiędzy 
+		  workerów objaśniony na wykładzie i opisany w dokumentacji Julii w sekcji 
+		  <A HREF="https://docs.julialang.org/en/stable/manual/parallel-computing/#id2">Shared arrays</A> 
+		  Proszę zmierzyć czas implementacji sekwencyjnej oraz każdego wariantu implementacji równoległej w zależności od liczby 
+		  workerów (od 1 do liczby rdzeni w procesorze). Wyniki porównania proszę przedstawić na wykresie. 
+		  <P>Uwagi:</P>
+		  <UL>
+			  <LI>Pomocny może być <A HREF="http://distrustsimplicity.net/articles/mandelbrot-speed-comparison/">przykład</A> 
+				  pokazujący równoległą	implementację zbioru Mandelbrota w oparciu o parallel for. </LI>
+			  <LI>Pojedyncze zadanie powinno obliczać jedną lub (najlepiej) więcej kolumn. Jeśli zadania będą zbyt drobne,
+				  to koszt wynikający z narzutu zrównoleglania (przełączanie między zadaniami, komunikacja między
+				  procesami) przewyższy zyski z podziału pracy na wiele procesów.</LI>
+		   </UL>
+     </ol>
+	     	<br><br>
+
+  </ul>
+
+<P>
+<HR>
+<I>Bartosz Baliś, balis at agh edu pl</I>
+<BR>
+<I>Maciej Malawski, malawski at agh edu pl</I>
+<BR>
+<I>Katarzyna Rycerz, kzajac at agh edu pl</I>
+<BR>
+
+<P> <P>
+
+</DIV>
+</TR>
+</TD>
+</TABLE>
+
+</BODY>
+
+</HTML>

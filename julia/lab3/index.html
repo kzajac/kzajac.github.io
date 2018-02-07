@@ -15,54 +15,48 @@
 <hr>
 <h2>Programowanie w języku Julia</h2>
 <hr>
-<h2> Tutorial z wykładu </h2>
+<h2> Tutorial z wykładu</h2>
 	<ul>
  	<li> Uwaga: Notebooki Jupitera  renderują się na stronie githuba do html, żeby ściągnąć wersję uruchamialną 
       dla Jupitera należy wybrać opcję "Raw"
-		<li> <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab3/metaprogramowanie.ipynb>Tutorial</a>
+		<li> <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab2/wyklad_performance.ipynb>Tutorial</a>
 	</ul>
 	<h2> Materiały online</h2>
 	<ul>
-          <li><a href="https://docs.julialang.org/en/stable/manual/metaprogramming/">Metaprogramowanie</a> </li>
+          <li><a href=http://docs.julialang.org/en/stable/manual/performance-tips/#man-performance-tips>Performance tips</a> </li>
 	</ul>	  
-<h2> Laboratorium 3 - ćwiczenia</h2>
+<h2> Laboratorium 2 - ćwiczenia</h2>
   <ul>
   
-    <li> <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab3/meta_short.ipynb> Skrócony tutorial </a>
+    <li> <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab2/performance_short.ipynb> Skrócony tutorial </a>
 	   
 	
-</ul>
-  <h2> Laboratorium 3 - zadania </h2>
-  <ul>
-  	   <li>Napisać funkcję generowaną, która oblicza średnią harmoniczną (5pkt):
-         <ul>
-			<li>Funkcja powinna przyjmować dowolną liczbę argumentów wykorzystując mechanizm varargs.</li>
-			<li>Przy pierwszym uruchomieniu dla danej liczby argumentów ma miejsce jej rozwinięcie w odpowiednie wyrażenie, składające się z operacji takich jak "/" czy "+".</li>
-			<li>Rozwinięcie nie powinno wykorzystywać pętli czy iterowania po kolekcjach!</li>
-		 </ul>
-	    	<br><br>
-       <li>Napisać makro, które wypełni tablicę elementami ciągu (15 pkt):
-         <ul>
-            <li>Ciąg jest zdefiniowany w postaci wyrażenia opisującego zależność rekurencyjną.</li>
-            <li>Tablica jest wcześniej zaalokowana, zawiera również początkowe wartości ciągu.</li>
-            <li>Przykładowe działanie gotowego makra. Poniższy kod:</li>
-            <code>y = zeros(10)</code><br>
-			<code>y[1:2] = [1, 1]</code><br>
-			<code>@fill_series y[t] = y[t-1] + y[t-2]</code><br>
-			<code>println(y)</code><br>
-			powinien wypisać<br>
-			<code>[1.0,1.0,2.0,3.0,5.0,8.0,13.0,21.0,34.0,55.0]</code><br>
-			<li>Podpowiedzi:
-				<ul>
-					<li>Wyrażęnie opisujące ciąg można łatwo przeglądać rekurencyjnie, w poszukiwaniu operacji odwołania się do tablicy (":ref").</li>
-					<li>Na podstawie wyrażeń w nich zawartych (takich jak np. "t+1", "t-3") można następnie wyznaczyć właściwy początek i koniec iterowania.</li>
-					<li>Samo makro powinno zwracać kod będący pętlą uzupełniającą kolejne wartości.</li>
-				</ul>
-			</li>
-	     </ul>
-	     	<br><br>
   </ul>
 
+  <h2> Laboratorium 2 - zadania </h2>
+  <ul>
+      <li> Napisać prosty program i przetestować na nim działanie profilera. (5pkt)
+        <ul>
+			<li> Program powinien wywoływać przez jakiś czas (np. 500 razy) na przemian dwie funkcje, które wykonują w pętli różną liczbę instrukcji. Np. funkcja1 alokuje 100000 stringów, a funkcja2 10000 stringów.</li>
+			W efekcie funkcja1 powinna zajmować 10 razy więcej czasu wykonania programu niż funkcja2.
+			<li> Prześledzić działanie programu, używając narzędzi do generowania raportów (Profile.print oraz ProfileView.view()).</li>
+			<li> Sprawdzić, jak zmieniają się wyniki profilowania dla różnych wartości <a href=http://docs.julialang.org/en/stable/manual/profile/#configuration><i>sampling interval</i></a> profilera. Kiedy proporcje proporcje ilości czasu spędzonego w każdej z funkcji przestają odpowiadać rzeczywistości?</li>
+		       
+		</ul>
+	      <br><br>
+       <li> Zoptymalizować program pod kątem wydajności (15 pkt):
+         <ul>
+            <li>Pobrać przygotowany <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab2/graphs.jl>kod niezoptymalizowanego programu</a>. Jest to prosta biblioteka do reprezentacji grafów, która zawiera funkcje do tworzenia grafów w reprezentacji tablicowej i obiektowej, a także przykłady operacji wykonywanych na grafach (bfs, sprawdzanie cyklu Eulera) i funkcje wypisujące elementy grafu.</li>
+			<li>Na podstawie materiałów z ćwiczeń i wykładu znaleźć i poprawić fragmenty, które zostały napisane niezgodnie z zasadami tworzenia wydajnych aplikacji w Julii. Aby dostać maksymalną liczbę punktów, należy wykonać przynajmniej <b>5 (różnych) optymalizacji.</b></li>
+		 <li> Pomocniczo kolekcja <a href="http://docs.julialang.org/en/stable/stdlib/collections/?highlight=set#set-like-collections">Set</a>
+		         <li>W celu weryfikacji poprawek należy użyć narzędzi do pomiaru czasu i alokowanej pamięci.
+			<br><br>
+			Uwaga: Optymalizacje mogą dotyczyć zarówno niewydajnych operacji, nieprzejrzystego zarządzania typami, a także nieefektywnego zarządzania pamięcią! 
+			Poprawki nie powinny wpływać na wyniki działania programu.
+		       
+	       <br><br>
+	       </ul>
+  </ul>
 <P>
 <HR>
 <I>Bartosz Baliś, balis at agh edu pl</I>
@@ -82,3 +76,4 @@
 </BODY>
 
 </HTML>
+
