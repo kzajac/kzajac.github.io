@@ -13,50 +13,46 @@
 <DIV ALIGN=left>
 
 <hr>
-<h2>Programowanie w języku Julia</h2>
-<hr>
-<h2> Tutorial z wykładu</h2>
-	<ul>
- 	<li> Uwaga: Notebooki Jupitera  renderują się na stronie githuba do html, żeby ściągnąć wersję uruchamialną 
-      dla Jupitera należy wybrać opcję "Raw"
-		<li> <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab2/wyklad_performance.ipynb>Tutorial</a>
-	</ul>
-	<h2> Materiały online</h2>
-	<ul>
-          <li><a href=http://docs.julialang.org/en/stable/manual/performance-tips/#man-performance-tips>Performance tips</a> </li>
-	</ul>	  
-<h2> Laboratorium 2 - ćwiczenia</h2>
-  <ul>
-  
-    <li> <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab2/performance_short.ipynb> Skrócony tutorial </a>
-	   
-	
-  </ul>
-
   <h2> Laboratorium 2 - zadania </h2>
   <ul>
-      <li> Napisać prosty program i przetestować na nim działanie profilera. (5pkt)
-        <ul>
-			<li> Program powinien wywoływać przez jakiś czas (np. 500 razy) na przemian dwie funkcje, które wykonują w pętli różną liczbę instrukcji. Np. funkcja1 alokuje 100000 stringów, a funkcja2 10000 stringów.</li>
-			W efekcie funkcja1 powinna zajmować 10 razy więcej czasu wykonania programu niż funkcja2.
-			<li> Prześledzić działanie programu, używając narzędzi do generowania raportów (Profile.print oraz ProfileView.view()).</li>
-			<li> Sprawdzić, jak zmieniają się wyniki profilowania dla różnych wartości <a href=http://docs.julialang.org/en/stable/manual/profile/#configuration><i>sampling interval</i></a> profilera. Kiedy proporcje proporcje ilości czasu spędzonego w każdej z funkcji przestają odpowiadać rzeczywistości?</li>
-		       
-		</ul>
-	      <br><br>
-       <li> Zoptymalizować program pod kątem wydajności (15 pkt):
+      <li> Napisać funkcję, która bierze typ i wypisuje jego graf dziedziczenia 
+        np. w formie  "Any-->Number-->Real-->AbstractFloat-->Float16" (3pkt)
+        <br>
+        Wskazówka: wewnetrznie typy są reprezentowane jako DataType np.: 
+        <br>
+        <code>
+          julia> typeof(Real)
+          <br>
+          DataType
+        </code>
+       <li> Napisać prostą symulację świata zwiarząt (12 pkt):
          <ul>
-            <li>Pobrać przygotowany <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab2/graphs.jl>kod niezoptymalizowanego programu</a>. Jest to prosta biblioteka do reprezentacji grafów, która zawiera funkcje do tworzenia grafów w reprezentacji tablicowej i obiektowej, a także przykłady operacji wykonywanych na grafach (bfs, sprawdzanie cyklu Eulera) i funkcje wypisujące elementy grafu.</li>
-			<li>Na podstawie materiałów z ćwiczeń i wykładu znaleźć i poprawić fragmenty, które zostały napisane niezgodnie z zasadami tworzenia wydajnych aplikacji w Julii. Aby dostać maksymalną liczbę punktów, należy wykonać przynajmniej <b>5 (różnych) optymalizacji.</b></li>
-		 <li> Pomocniczo kolekcja <a href="http://docs.julialang.org/en/stable/stdlib/collections/?highlight=set#set-like-collections">Set</a>
-		         <li>W celu weryfikacji poprawek należy użyć narzędzi do pomiaru czasu i alokowanej pamięci.
-			<br><br>
-			Uwaga: Optymalizacje mogą dotyczyć zarówno niewydajnych operacji, nieprzejrzystego zarządzania typami, a także nieefektywnego zarządzania pamięcią! 
-			Poprawki nie powinny wpływać na wyniki działania programu.
-		       
-	       <br><br>
-	       </ul>
+           <li> zwierzę może być typu Drapieżnik lub Ofiara. Oba te typy powinny dziedziczyć po abstrakcyjnym typie Zwierzę
+             <li> zwierzęta żyją na kwadratowej planszy NxN, N - dowolnie wybrana (ustalona) liczba. 
+               Kazde zwierzę zajmuje jedną kratkę
+          <li> Przetestować wsparcie Julii dla Unicode poprzez użycie polskich znaków.
+             <li> Napisać parametryczną funkcję dodawania zwierzęcia  do swiata wg podanych współrzędnych 
+             działającą dla dowolnego typu pochodnego od Zwierzę. Jeśli miejsce jest zajęte rzucany jest wyjątek. 
+               Przetestować dodając kilka zwierząt do świata.
+           
+              
+           <li> Napisać parametryczną funkcję <i>odległość</i>, 
+             ktora oblicza odległość miedzy zwierzętami <a href="https://en.wikipedia.org/wiki/Taxicab_geometry">metryką taksowkową</a> .
+             Funkcja powinna akceptować dowolne typy dziedziczące po typie Zwierzę.
+             Przetesować działanie.
+           <li>napisac funkcję <i>interakcja</i>. Zademonstrować i przetestować mechanizm multiple dispatch pisząc następujące metody tej funkcji:
+             <ul>
+             <li>Jesli pierwszym argumentem jest zmienna typu Drapieżnik, a drugim zmienna typu  Ofiara, Ofiara znika ze swiata.
+             <li> Jesli pierwszym argumentem jest zmienna typu Ofiara, a druga typu Drapieżnik, Ofiara ucieka w dowolne inne wolne miejsce
+              <li> Jesli obydwoma  argumentami sa Drapieżnicy metoda zwraca string "Wrrrr".
+                <li> Jesli obydwoma argumentami sa Ofiary metoda zwraca  string "Beeee".
+                  
+             </ul>
+              
+         </ul> 
   </ul>
+
+ 
 <P>
 <HR>
 <I>Bartosz Baliś, balis at agh edu pl</I>
@@ -76,4 +72,3 @@
 </BODY>
 
 </HTML>
-
