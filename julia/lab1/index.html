@@ -15,68 +15,32 @@
 <hr>
 <h2>Programowanie w języku Julia</h2>
 <hr>
-  <h3> Zadanie wprowadzające</h3>
   <a href="../wyklady/julia_fin2.pptx">Wykład 1</a>
-  <ul>
-    <li> Założyć konto na <a href="https://juliabox.com">https://juliabox.com</a>
-    <li> Przeglądnąć i uruchomić przykłady z <a href="https://juliabyexample.helpmanual.io/">https://juliabyexample.helpmanual.io/</a> z sekcji:
-     <ul>
-      <li>Simple functions
-      <li>Arrays
-      <li>Loops and map
-      <li>Packages and including of Files
-     </ul>
-<li> Przygotować implementację dowolnego algorytmu (np.. z przedmiotu algorytmy i struktury danych) w Julii.
-<li>Implementacje należy zademonstrować na lab za pomocą juliabox
-<li>Powinien to być prosty algorytm zawierający użycie: 
-<ul>
-  <li>dowolnej pętli, 
-  <li>dowolnej tablicy, 
-  <li>utworzenie i wywołanie funkcji.
-  </ul>
-<li>Przykłady: sito Erastotenesa, sortowanie bąbelkowe 
-    <li>Strona z algorytmami: <a href="http://www.algorytm.org/algorytmy/">http://www.algorytm.org/algorytmy/</a>
-  </ul>
+
   <H3>Instalacja i  uwagi techniczne</H3>
 <p> 
 <ul>
   <li>Strona domowa <a href="http://julialang.org/"> http://julialang.org/</a>
     <li> Julia jest młodym, a przez to jeszcze niestablinym językiem, zmieniającym sie wraz z wersją,
-      na zajęciach będziemy używać najnowszej oficjalnej wersji 0.5.0. Wersja 0.6.0 może jeszcze nie działać dobrze. 
-  <li> Wybrane środowiska programistyczne (na zajeciach można używać dowolnego z nich):
+      na zajęciach będziemy używać najnowszej oficjalnej wersji 0.6.2
+  <li> Środowiska programistyczne do jezyka Julia znajdujące się 
+w pakiecie <a href="https://juliacomputing.com/products/juliapro.html">
+JuliaPro</a>
+ (na zajeciach można używać dowolnego z nich):
       <ul>
+       
         <li> konsola Julii  dostępna wraz z instalacją języka <a href="http://julialang.org/downloads/">http://julialang.org/downloads/</a>
-        <li> edytor Atom + plugin Juno <a href="http://junolab.org/"> http://junolab.org/</a>
+        <li> edytor Atom + plugin Juno 
         <li> narzędzie webowe Jupiter + pakiet IJulia <a href="https://github.com/JuliaLang/IJulia.jl">https://github.com/JuliaLang/IJulia.jl</a>
         <li> Jupiter online na google cloud <a href="https://juliabox.com">https://juliabox.com</a>
       </ul>
     <li>Praktyczne uwagi do instalacji
         <ul>
            <li> Wszystkie wymienione środowiska programistyczne są zainstalowane na obrazie ICSR Win 8 
-           <li>używanie Jupitera na kontach studenckich PCoIP  może wymagać reistalacji 
-            pakietu IJulia dla każdego użytkownika. Reinstalacji nalezy dokonać raz.
-            <br>
-            Jak sprawdzamy czy pakiet IJulia działa:
-            <ol> 
-              <li> otwieramy konsole Julii
-                <li>wpisujemy using IJulia; notebook()
-                <li>to powoduje postawienie lokalnie  serwera http, automatycznie otwiera sie
-                    przeglądarka i pojawia sie w niej webowa aplikacja do Julii, 
-                  ktora łączy sie z tym serwerem  (trzeba chwilke poczekac)
-                <li> po kliknieciu na "New" u gory z lewej powinna byc do wyboru Julia 0.5.0. (obok Pythona)
-                <li>jeśli  Julii nie mozna   wybrać (nie pojawia sie ), to należy dokonać reinstalacji.
-            </ol>
- Reinstalacja pakietu IJulia
-            <ol>
-              <li>W konsoli Julii wykonujemy Pkg.rm("IJulia")
-              <li>W konsoli Julii wykonujemy Pkg.add("IJulia"). Moze pojawić się chwilowy błąd przy ściaganiu pakietow, 
-                ale wtedy julia powinna automatycznie użyć drugiego repozytorium i ściagnąć pakiet.
-            </ol>
-            </ul>
-       <li> Na zajęciach można używać własnej instalacji na laptopie. 
-         <li> Do własnej instacji na Ubuntu lepiej używać wersji ze strony <a href="http://julialang.org/downloads/">http://julialang.org/downloads/</a> niż pakietów Ubuntu
+           <li> Na zajęciach można używać własnej instalacji na laptopie. 
+           <li> Do własnej instacji na Ubuntu lepiej używać wersji ze strony <a href="http://julialang.org/downloads/">http://julialang.org/downloads/</a> niż pakietów Ubuntu
          
-      </ul>
+       </ul>
   
   <h3> Dokumentacja</h3>
   <ul>
@@ -107,63 +71,39 @@
     <li> Uwaga: poniższe notebooki Jupitera  renderują się na stronie githuba do html, żeby ściągnąć wersję uruchamialną 
       dla Jupitera należy wybrać opcję "Raw"
     <li> Zapoznać sie z <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab1/Tutorial_1.ipynb>tutorialem 1</a>
-      <li> Zapoznać sie z <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab1/Tutorial_2.ipynb>tutorialem 2</a>
+</a>
   
   </ul>
 
   <h2> Laboratorium 1 - zadania </h2>
+  <h3> Zadanie wprowadzające</h3>
   <ul>
-    <li> Zadanie wprowadzające z wykladu (dowolny algorytm z tablicą i pętlą) 5pkt
-      <li> Napisać funkcję, która bierze typ i wypisuje jego graf dziedziczenia 
-        np. w formie  "Any-->Number-->Real-->AbstractFloat-->Float16" (3pkt)
-        <br>
-        Wskazówka: wewnetrznie typy są reprezentowane jako DataType np.: 
-        <br>
-        <code>
-          julia> typeof(Real)
-          <br>
-          DataType
-        </code>
-       <li> Napisać prostą symulację świata zwiarząt (12 pkt):
-         <ul>
-           <li> zwierzę może być typu Drapieżnik lub Ofiara. Oba te typy powinny dziedziczyć po abstrakcyjnym typie Zwierzę
-             <li> zwierzęta żyją na kwadratowej planszy NxN, N - dowolnie wybrana (ustalona) liczba. 
-               Kazde zwierzę zajmuje jedną kratkę
-          <li> Przetestować wsparcie Julii dla Unicode poprzez użycie polskich znaków.
-             <li> Napisać parametryczną funkcję dodawania zwierzęcia  do swiata wg podanych współrzędnych 
-             działającą dla dowolnego typu pochodnego od Zwierzę. Jeśli miejsce jest zajęte rzucany jest wyjątek. 
-               Przetestować dodając kilka zwierząt do świata.
-           
-              
-           <li> Napisać parametryczną funkcję <i>odległość</i>, 
-             ktora oblicza odległość miedzy zwierzętami <a href="https://en.wikipedia.org/wiki/Taxicab_geometry">metryką taksowkową</a> .
-             Funkcja powinna akceptować dowolne typy dziedziczące po typie Zwierzę.
-             Przetesować działanie.
-           <li>napisac funkcję <i>interakcja</i>. Zademonstrować i przetestować mechanizm multiple dispatch pisząc następujące metody tej funkcji:
-             <ul>
-             <li>Jesli pierwszym argumentem jest zmienna typu Drapieżnik, a drugim zmienna typu  Ofiara, Ofiara znika ze swiata.
-             <li> Jesli pierwszym argumentem jest zmienna typu Ofiara, a druga typu Drapieżnik, Ofiara ucieka w dowolne inne wolne miejsce
-              <li> Jesli obydwoma  argumentami sa Drapieżnicy metoda zwraca string "Wrrrr".
-                <li> Jesli obydwoma argumentami sa Ofiary metoda zwraca  string "Beeee".
-                  
-             </ul>
-              
-         </ul> 
-  </ul>
-         <h2> Alternatywa zaliczenia laboratorium </h2>
-           <ul>
-    
-            <li> tylko dla jednej, dwuosobowej grupy, liczy się kolejność zgłoszeń.
-            <li>Projekt będzie polegał na przepisaniu wybranych funkcji biblioteki używanej w fizyce medycznej w celu ulepszenia kuracji pacjentów onkologicznych
-      <a href="https://github.com/libamtrack/library">amtrack</a> w porozumieniu z dr Leszkim Grzanką z Instytutu Fizyki Jądrowej PAN 
-      </ul>
+    <li> Założyć konto na <a href="https://juliabox.com">https://juliabox.com</a>
+    <li> Wykonać <a href="">tutorial </a>
 
- 
+<li> Przygotować implementację dowolnego algorytmu (np.. z przedmiotu algorytmy i struktury danych) w Julii.
+<li>Implementacje należy zademonstrować na lab za pomocą juliabox
+<li>Powinien to być prosty algorytm zawierający użycie: 
+<ul>
+  <li>dowolnej pętli, 
+  <li>dowolnej tablicy, 
+  <li>utworzenie i wywołanie funkcji.
+  </ul>
+<li>Przykłady: sito Erastotenesa, sortowanie bąbelkowe 
+    <li>Strona z algorytmami: <a href="http://www.algorytm.org/algorytmy/">http://www.algorytm.org/algorytmy/</a>
+  </ul>
+
+</ul> 
 <P>
 <HR>
 <I>Bartosz Baliś, balis at agh edu pl</I>
 <BR>
 <I>Maciej Malawski, malawski at agh edu pl</I>
+<BR>
+
+<I>Piotr Moczurad</I>
+<BR>
+<I>Maciej Pawlik</I>
 <BR>
 <I>Katarzyna Rycerz, kzajac at agh edu pl</I>
 <BR>
