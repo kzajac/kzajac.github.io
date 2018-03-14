@@ -24,26 +24,31 @@
       <li> Napisać funkcję, która bierze typ i wypisuje jego graf dziedziczenia 
         np. w formie  "Any-->Number-->Real-->AbstractFloat-->Float16" (3pkt)
         <br>
-        Wskazówka: wewnetrznie typy są reprezentowane jako DataType np.: 
-        <br>
-        <code>
-          julia> typeof(Real)
-          <br>
-          DataType
-        </code>
+        
        <li> Stworzyć typ będący grupą algebraiczną zamkniętą ze względu na mnożenie mod N. 
 	       Szczegóły:
 	       <ul>
 			<li> Typ powinien być   parametryzowany liczbą N wg zasady:
-	       		Liczba  x należy do grupy (czyli x jest typu Gn{N}) dla konkretnego N, jeśli jest mniejsza od N 
-		       i nie ma wspólnych podzielników z N większych od 1.
+				Liczba  x należy do grupy (czyli x jest typu Gn{N}) dla konkretnego N, jeśli:
+				<ul>
+				  <li>jest mniejsza od N 
+		       		   <li>nie ma wspólnych podzielników z N większych od 1.
+				</ul>
 			 <li> Stworzyć odpowiedni konstruktor sprawdzający warunki utworzenia obiektu danej grupy:
-				 Jeśli liczba jest za duża należy
-		 	wyliczyć jej resztę z dzielenia przez N i jeśli nie ma ona podzielników wspólnych z N większych od 1, to można
-		 	z niej utworzyć obiekt typu Gn{N}. Jesli liczba ma wspólne podzielniki należy rzucic wyjątek.
-		       <li> taka grupa jest zamknięta ze względu na mnożenie modulo N czyli: jeśli <i>a</i> należy do Gn{N}
-			       i <i>b</i> należy do Gn{N} to <i>c=(a*b)mod N </i> też należy do Gn{N}. Napisać metody funkcji
-					'*' dla obu argumentów typu Gn{N} jak również mieszanych Gn{N} i Int64 
+				 Jeśli liczba jest za duża należy:
+				 <ul>
+		 	           <li>wyliczyć jej resztę z dzielenia przez N 
+				  <li> jeśli reszta  nie ma  podzielników wspólnych z N większych od 1, to można
+		 	z niej utworzyć obiekt typu Gn{N}. 
+				   <li>Jesli liczba ma wspólne podzielniki należy rzucic wyjątek.
+				 </ul>
+					 <li> taka grupa jest zamknięta ze względu na mnożenie modulo N czyli: 
+						 <ul>
+						 <li> jeśli <i>a</i> należy do Gn{N}
+			       i <i>b</i> należy do Gn{N} to <i>c=(a*b)mod N </i> też należy do Gn{N}. 
+							 <li> Napisać metody funkcji
+					'*' dla obu argumentów typu Gn{N} jak również mieszanych Gn{N} i Int64
+						 </ul>
 			<li> napisać odpowiednia funkcje konwertujaca i regułe promocji.
 		       <li> napisac funkcję <i>a^x mod N</i> dla <i> a</i> będącego typu G{N} i <i>x</i> typu Int64 korzystając
 			       z poprzedniej funkcji. Upewnić się, 
