@@ -49,10 +49,13 @@
 						 <li> jeśli <i>a</i> należy do Gn{N}
 			       i <i>b</i> należy do Gn{N} to <i>c=(a*b)mod N </i> też należy do Gn{N}. 
 							 <li> Napisać metody funkcji
-					'*' dla obu argumentów typu Gn{N} jak również mieszanych Gn{N} i Int64
+					'*' dla obu argumentów typu Gn{N} jak również mieszanych Gn{N} i Int64. Uwaga: pamiętac o
+								 <i> import Base.*</i>
 						 </ul>
-			<li> napisać odpowiednia funkcje konwertujaca i regułe promocji.
-		       <li> napisac funkcję <i>a^x mod N</i> dla <i> a</i> będącego typu G{N} i <i>x</i> typu Int64 korzystając
+			<li> napisać odpowiednia funkcje konwertujaca i regułe promocji. Przetestowac dzialanie. Pamiętać o zaimportowaniu
+				<i>Base.convert</i> i <i> Base.promote_rule</i>
+		       <li> napisac funkcję <i>a^x mod N</i> dla <i> a</i> będącego typu Gn{N} i <i>x</i>bedaca pochodna typu 
+			       Integer korzystając
 			       z poprzedniej funkcji. Upewnić się, 
 			       że w trakcie nie są tworzone duże liczby (duże potęgi liczby a), należy pamiętać, że 
 			       wystarczy mnożyć reszty, nie trzeba "całych" liczb.
