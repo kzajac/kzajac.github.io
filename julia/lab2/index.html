@@ -31,31 +31,32 @@
           <br>
           DataType
         </code>
-       <li> Napisać prostą symulację świata zwiarząt (12 pkt):
-         <ul>
-           <li> zwierzę może być typu Drapieżnik lub Ofiara. Oba te typy powinny dziedziczyć po abstrakcyjnym typie Zwierzę
-             <li> zwierzęta żyją na kwadratowej planszy NxN, N - dowolnie wybrana (ustalona) liczba. 
-               Kazde zwierzę zajmuje jedną kratkę
-          <li> Przetestować wsparcie Julii dla Unicode poprzez użycie polskich znaków.
-             <li> Napisać parametryczną funkcję dodawania zwierzęcia  do swiata wg podanych współrzędnych 
-             działającą dla dowolnego typu pochodnego od Zwierzę. Jeśli miejsce jest zajęte rzucany jest wyjątek. 
-               Przetestować dodając kilka zwierząt do świata.
-           
-              
-           <li> Napisać parametryczną funkcję <i>odległość</i>, 
-             ktora oblicza odległość miedzy zwierzętami <a href="https://en.wikipedia.org/wiki/Taxicab_geometry">metryką taksowkową</a> .
-             Funkcja powinna akceptować dowolne typy dziedziczące po typie Zwierzę.
-             Przetesować działanie.
-           <li>napisac funkcję <i>interakcja</i>. Zademonstrować i przetestować mechanizm multiple dispatch pisząc następujące metody tej funkcji:
-             <ul>
-             <li>Jesli pierwszym argumentem jest zmienna typu Drapieżnik, a drugim zmienna typu  Ofiara, Ofiara znika ze swiata.
-             <li> Jesli pierwszym argumentem jest zmienna typu Ofiara, a druga typu Drapieżnik, Ofiara ucieka w dowolne inne wolne miejsce
-              <li> Jesli obydwoma  argumentami sa Drapieżnicy metoda zwraca string "Wrrrr".
-                <li> Jesli obydwoma argumentami sa Ofiary metoda zwraca  string "Beeee".
-                  
-             </ul>
-              
-         </ul> 
+       <li> Stworzyć typ będący grupą algebraiczną zamkniętą ze względu na mnożenie mod N. 
+	       Szczegóły:
+	       <ul>
+			<li> Typ powinien być   parametryzowany liczbą N wg zasady:
+	       		Liczba  x należy do grupy (czyli x jest typu Gn{N}) dla konkretnego N, jeśli jest mniejsza od N 
+		       i nie ma wspólnych podzielników z N większych od 1.
+			 <li> Stworzyć odpowiedni konstruktor sprawdzający warunki utworzenia obiektu danej grupy:
+				 Jeśli liczba jest za duża należy
+		 	wyliczyć jej resztę z dzielenia przez N i jeśli nie ma ona podzielników wspólnych z N większych od 1, to można
+		 	z niej utworzyć obiekt typu Gn{N}. Jesli liczba ma wspólne podzielniki należy rzucic wyjątek.
+		       <li> taka grupa jest zamknięta ze względu na mnożenie modulo N czyli: jeśli <i>a</i> należy do Gn{N}
+			       i <i>b</i> należy do Gn{N} to <i>c=(a*b)mod N </i> też należy do Gn{N}. Napisać metody funkcji
+					'*' dla obu argumentów typu Gn{N} jak również mieszanych Gn{N} i Int64 
+			<li> napisać odpowiednia funkcje konwertujaca i regułe promocji.
+		       <li> napisac funkcję <i>a^x mod N</i> dla <i> a</i> będącego typu G{N} i <i>x</i> typu Int64 korzystając
+			       z poprzedniej funkcji. Upewnić się, 
+			       że w trakcie nie są tworzone duże liczby (duże potęgi liczby a), należy pamiętać, że 
+			       wystarczy mnożyć reszty, nie trzeba "całych" liczb.
+			     <li> napisać funkcję obliczającą okres danej liczby typu G{N} czyli najmniejszą liczbę naturalną r,
+				     taką, że <i> a^r mod N =1</i>. Można to zrobić sprawdzająć po kolei wszystkie możliwości, można
+				     też skorzystać z twierdzenia, że r musi dzielić ilość elementów w grupie 
+		             <li> napisac funkcję obliczającą element b odwrotny do a, czyli taki, że (a*b) mod N =1. Mozna
+				     to zrobić sprawdzając wszystkie możliwości albo stosując <a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm"
+												 rozszerzony algorytm Euklidesa</a>.
+	</ul> 
+         
   </ul>
 
  
