@@ -80,6 +80,17 @@
 				  <p>
 				      <li> napisać funkcję obliczającą ilość elementów w grupie modulo N. Funkcja powinna  
 					     przyjmować jako parametr typ G{N} (a nie zmienną typu G{N}). 
+					      <p>
+				     <li> Przetestuj złamanie wiadomości zaszyfrowanej RSA poprzez obliczenie okresu w odpowiedniej grupie
+					<ul>
+				           <li> Mamy dany klucz publiczny składający się z N=55 oraz 
+									     liczby c=17
+									     oraz zakodowaną wiadomość b=4
+					    <li> oblicz okres r wiadomości b w G{N}
+					    <li> oblicz d - odwrotność do c w G{r}. Jest to klucz prywatny
+					    <li> rozkoduj wiadmość  a=b^d mod N
+				            <li> sprawdz, ze faktycznie ta wiadomość była zakodowana kluczem (N,c) czyli, że b = a^c mod N
+							      </ul>
 	</ul> 
          
   </ol>
