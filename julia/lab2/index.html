@@ -36,6 +36,7 @@
 		       		   <li>nie ma wspólnych podzielników z N poza 1 i N.
 			           
 				</ul> Uwaga: liczba 1 zawsze należy do grupy.
+				 <p>
 			 <li> Stworzyć odpowiedni konstruktor sprawdzający warunki utworzenia obiektu danej grupy.
 				 Jeśli liczba jest za duża należy:
 				 <ul>
@@ -44,6 +45,7 @@
 		 	z niej utworzyć obiekt typu Gn{N}. 
 				   <li>Jesli liczba ma wspólne podzielniki należy rzucic wyjątek DomainError.
 				 </ul>
+					 <p>
 					 <li> Taka grupa jest zamknięta ze względu na mnożenie modulo N czyli: 
 						 <ul>
 						 <li> jeśli <i>a</i> należy do Gn{N}
@@ -53,24 +55,30 @@
 								 Uwaga: pamiętac o
 								 <i> import Base.*</i>
 						 </ul>
+						 <p>
 						 <li> napisać regułe promocji dla G{N} i dowolnego pochodnego typu Integer. Sprawdzić czy działa poprzez <i> promote_type</i>. Pamiętać o zaimportowaniu
-			<i> Base.promote_rule</i>. 
+			<i> Base.promote_rule</i>.
+							  <p>
 			<li> napisać funkcję konwertujacą Int64 do G{N}.  Przetestowac działanie poprzez wymuszenie konwersji. Pamiętać o zaimportowaniu
 				<i>Base.convert</i>.
+				 <p>
 		       <li> napisac funkcję realizującą działanie <i>a^x mod N</i> dla <i> a</i>  typu Gn{N} i <i>x</i> będącą dowolną pochodna typu 
 			       Integer korzystając
 			       z poprzedniej funkcji. Upewnić się, 
 			       że w trakcie nie są tworzone duże liczby (duże potęgi liczby a), należy pamiętać, że 
 			       wystarczy mnożyć reszty, nie trzeba "całych" liczb.
+			        <p>
 			     <li> korzystając z poprzedniej funkcji napisać funkcję obliczającą okres danej liczby typu G{N} czyli najmniejszą liczbę naturalną r,
 				     taką, że <i> a^r mod N =1</i>. Wskazówka: można to zrobić sprawdzająć po kolei wszystkie możliwości, można
 				     też skorzystać z twierdzenia, że r musi dzielić ilość elementów w grupie. 
-		             <li> napisac funkcję obliczającą element b odwrotny do a, czyli taki, że (a*b) mod N =1. Wskazówka: mozna
+		              <p>
+					<li> napisac funkcję obliczającą element b odwrotny do a, czyli taki, że (a*b) mod N =1. Wskazówka: mozna
 				     to zrobić sprawdzając po kolei wszystkie możliwości albo stosując <a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm">
 												
 												 rozszerzony 
 												 algorytm Euklidesa</a>.
-				     <li> napisać funkcję obliczającą ilość elementów w grupie modulo N. Funkcja powinna  
+				  <p>
+				      <li> napisać funkcję obliczającą ilość elementów w grupie modulo N. Funkcja powinna  
 					     przyjmować jako parametr typ G{N} (a nie zmienną typu G{N}). 
 	</ul> 
          
