@@ -57,10 +57,10 @@
 								 <i> import Base.*</i>
 						 </ul>
 						 <p>
-						 <li> napisać regułe promocji dla G{N} i dowolnego pochodnego typu Integer. Sprawdzić czy działa poprzez <i> promote_type</i>. Pamiętać o zaimportowaniu
+						 <li> napisać regułe promocji dla Gn{N} i dowolnego pochodnego typu Integer. Sprawdzić czy działa poprzez <i> promote_type</i>. Pamiętać o zaimportowaniu
 			<i> Base.promote_rule</i>.
 							  <p>
-			<li> napisać funkcję konwertujacą Int64 do G{N} oraz G{N} do Int64. Przetestowac działanie poprzez wymuszenie konwersji. Pamiętać o zaimportowaniu
+			<li> napisać funkcję konwertujacą Int64 do Gn{N} oraz Gn{N} do Int64. Przetestowac działanie poprzez wymuszenie konwersji. Pamiętać o zaimportowaniu
 				<i>Base.convert</i>.
 				 <p>
 		       <li> napisac funkcję realizującą działanie <i>a^x mod N</i> dla <i> a</i>  typu Gn{N} i <i>x</i> będącą dowolną pochodna typu 
@@ -80,15 +80,15 @@
 												 algorytm Euklidesa</a>.
 				  <p>
 				      <li> napisać funkcję obliczającą ilość elementów w grupie modulo N. Funkcja powinna  
-					     przyjmować jako parametr typ G{N} (a nie zmienną typu G{N}). 
+					     przyjmować jako parametr typ Gn{N} (a nie zmienną typu Gn{N}). 
 					      <p>
 				     <li> Przetestuj złamanie wiadomości zaszyfrowanej RSA poprzez obliczenie okresu w odpowiedniej grupie
 					<ul>
 				           <li> Mamy dany klucz publiczny składający się z N=55 oraz 
 									     liczby c=17
 									     oraz zakodowaną wiadomość b=4
-					    <li> oblicz okres r wiadomości b w G{N}
-					    <li> oblicz d - odwrotność do c w G{r}. Jest to klucz prywatny
+					    <li> oblicz okres r wiadomości b w Gn{N}
+					    <li> oblicz d - odwrotność do c w Gn{r}. Jest to klucz prywatny
 					    <li> rozkoduj wiadmość  a=b^d mod N
 				            <li> sprawdz, ze faktycznie ta wiadomość była zakodowana kluczem (N,c) czyli, że b = a^c mod N
 							      </ul>
