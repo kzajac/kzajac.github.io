@@ -40,7 +40,7 @@
 			<p>
 	       Szczegóły zadania:
 	       <ul>
-			<li> Typ powinien być   parametryzowany liczbą N wg zasady:
+		       <li> Typ powinien być   <a href="https://docs.julialang.org/en/stable/manual/types/#Parametric-Composite-Types-1">parametryzowany</a> liczbą N wg zasady:
 				Liczba  x należy do grupy (czyli x jest typu Gn{N}) dla konkretnego N, jeśli:
 				<ul>
 				  <li>jest mniejsza od N 
@@ -48,7 +48,7 @@
 			           
 				</ul> Uwaga: liczba 1 zawsze należy do grupy.
 				 <p>
-			 <li> Stworzyć odpowiedni konstruktor sprawdzający warunki utworzenia obiektu danej grupy.
+					 <li> Stworzyć odpowiedni <a href="https://docs.julialang.org/en/stable/manual/constructors/#Inner-Constructor-Methods-1">konstruktor</a> sprawdzający warunki utworzenia obiektu danej grupy.
 				 Jeśli liczba jest za duża należy:
 				 <ul>
 		 	           <li>wyliczyć jej resztę z dzielenia przez N 
@@ -61,19 +61,20 @@
 						 <ul>
 						 <li> jeśli <i>a</i> należy do Gn{N}
 			       i <i>b</i> należy do Gn{N} to <i>c=(a*b)mod N </i> też należy do Gn{N}. 
-							 <li> Napisać metody funkcji
+							 <li> Napisać <a href="https://docs.julialang.org/en/stable/manual/methods/">metody</a> funkcji
 					'*' dla obu argumentów typu Gn{N} jak również mieszanych: Gn{N} i dowolnych pochodnych typu Integer.
 								 <b>Uwaga: pamiętac o zaimportowaniu funkcji "*" modułu Base, inaczej 
 								 przesłonimy domyślne mnożenie i będą dziać się dziwne rzeczy </b>
 								 <i> import Base.*</i>
 						 </ul>
 						 <p>
-						 <li> napisać regułe promocji dla Gn{N} i dowolnego pochodnego typu Integer. Sprawdzić czy działa poprzez <i> promote_type</i>. Pamiętać o zaimportowaniu
+							
+							 <li> napisać <a href="https://docs.julialang.org/en/stable/manual/conversion-and-promotion/#Defining-New-Conversions-1">funkcję konwertujacą</a> Int64 do Gn{N} oraz Gn{N} do Int64. Przetestowac działanie poprzez wymuszenie konwersji. Pamiętać o zaimportowaniu
+				<i>Base.convert</i>.
+				 <p> 
+					 <li> napisać regułe <a href="https://docs.julialang.org/en/stable/manual/conversion-and-promotion/#Promotion-1">promocji</a> dla Gn{N} i dowolnego pochodnego typu Integer. Sprawdzić czy działa poprzez <i> promote_type</i>. Pamiętać o zaimportowaniu
 			<i> Base.promote_rule</i>.
 							  <p>
-			<li> napisać funkcję konwertujacą Int64 do Gn{N} oraz Gn{N} do Int64. Przetestowac działanie poprzez wymuszenie konwersji. Pamiętać o zaimportowaniu
-				<i>Base.convert</i>.
-				 <p>
 		       <li> napisac funkcję realizującą działanie <i>a^x mod N</i> dla <i> a</i>  typu Gn{N} i <i>x</i> będącą dowolną pochodna typu 
 			       Integer korzystając
 			       z poprzedniej funkcji. Upewnić się, 
