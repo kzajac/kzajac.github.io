@@ -23,7 +23,7 @@
 	</ul>
 	<h2> Materiały online</h2>
 	<ul>
-          <li><a href=http://docs.julialang.org/en/stable/manual/performance-tips/#man-performance-tips>Performance tips</a> </li>
+          <li><a href=http://docs.julialang.org/en/stable/manual/performance-tips/#man-performance-tips-1>Performance tips</a> </li>
 	</ul>	  
 
  <h2> Uwagi </h2>
@@ -58,7 +58,7 @@
 			<li> Program powinien wywoływać przez jakiś czas (np. 500 razy) na przemian dwie funkcje, które wykonują w pętli różną liczbę instrukcji. Np. funkcja1 alokuje 100000 stringów, a funkcja2 10000 stringów.</li>
 			W efekcie funkcja1 powinna zajmować 10 razy więcej czasu wykonania programu niż funkcja2.
 			<li> Prześledzić działanie programu, używając narzędzi do generowania raportów (Profile.print oraz ProfileView.view()).</li>
-			<li> Sprawdzić, jak zmieniają się wyniki profilowania dla różnych wartości <a href=http://docs.julialang.org/en/stable/manual/profile/#configuration><i>sampling interval</i></a> profilera. Kiedy proporcje proporcje ilości czasu spędzonego w każdej z funkcji przestają odpowiadać rzeczywistości?</li>
+			<li> Sprawdzić, jak zmieniają się wyniki profilowania dla różnych wartości <a href="https://docs.julialang.org/en/stable/manual/profile/#Configuration-1"><i>delay</i></a> profilera. Kiedy proporcje ilości czasu spędzonego w każdej z funkcji przestają odpowiadać rzeczywistości?</li>
 		       
 		</ul>
 	      <br><br>
@@ -66,7 +66,7 @@
          <ul>
             <li>Pobrać przygotowany <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab3/graphs.jl>kod niezoptymalizowanego programu</a>. Jest to prosta biblioteka do reprezentacji grafów, która zawiera funkcje do tworzenia grafów w reprezentacji tablicowej i obiektowej, a także przykłady operacji wykonywanych na grafach (bfs, sprawdzanie cyklu Eulera) i funkcje wypisujące elementy grafu.</li>
 			<li>Na podstawie materiałów z ćwiczeń i wykładu znaleźć i poprawić fragmenty, które zostały napisane niezgodnie z zasadami tworzenia wydajnych aplikacji w Julii. Aby dostać maksymalną liczbę punktów, należy wykonać przynajmniej <b>5 (różnych) optymalizacji.</b></li>
-		 <li> Pomocniczo kolekcja <a href="http://docs.julialang.org/en/stable/stdlib/collections/?highlight=set#set-like-collections">Set</a>
+		 <li> Pomocniczo kolekcja <a href="https://docs.julialang.org/en/stable/stdlib/collections/?highlight=set#Base.Set">Set</a>
 		         <li>W celu weryfikacji poprawek należy użyć narzędzi do pomiaru czasu i alokowanej pamięci.
 			<br><br>
 			Uwaga: Optymalizacje mogą dotyczyć zarówno niewydajnych operacji, nieprzejrzystego zarządzania typami, a także nieefektywnego zarządzania pamięcią! 
