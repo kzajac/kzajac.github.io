@@ -11,7 +11,7 @@ export GraphVertex, NodeType, Person, Address,
 
 #= Single graph vertex type.
 Holds node value and information about adjacent vertices =#
-type GraphVertex
+mutable struct GraphVertex
   value
   neighbors ::Vector
 end
@@ -19,11 +19,11 @@ end
 # Types of valid graph node's values.
 abstract type NodeType end
 
-type Person <: NodeType
+mutable struct Person <: NodeType
   name
 end
 
-type Address <: NodeType
+mutable struct Address <: NodeType
   streetNumber
 end
 
