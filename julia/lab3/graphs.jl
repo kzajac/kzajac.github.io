@@ -17,7 +17,7 @@ type GraphVertex
 end
 
 # Types of valid graph node's values.
-abstract NodeType
+abstract type NodeType end
 
 type Person <: NodeType
   name
