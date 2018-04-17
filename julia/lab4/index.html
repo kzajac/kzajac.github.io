@@ -26,19 +26,16 @@
 	<li><a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab4/medical.csv> medical.csv  - plik wejściowy do tutorialu  <a>
 		<li><a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab4/winequality.csv>
 			winequality.csv - plik wejściowy do tutorialu  </a>
-	</ul>
-<i> TODO
-		<h2> Materiały online</h2>
-	<ul>
-          <li><a href="http://juliastats.github.io/DataFrames.jl/stable/">Pakiet DataFrames</a> </li>
+  </ul>
+  
+<h2> Materiały online</h2>
+	<ul>    
+          <li><a href="http://juliadata.github.io/DataFrames.jl/release-0.10/">Pakiet DataFrames</a> (Uwaga! zalecana wersja to 0.10) </li>
           <li><a href="http://docs.juliadiffeq.org/stable/">Równania różniczkowe w Julia</a> </li>
           <li><a href="http://mathworld.wolfram.com/Lotka-VolterraEquations.html">Modele drapieżników i ofiar Lotka-Volterra</a> </li>
           <li><a href="http://gadflyjl.org/stable/">Pakiet Gadfly</a> </li>
-
+          <li><a href="https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab4/DifferentialEquationsDataFrames.ipynb">Krótki przykład</a></li>
 	</ul>
- 
-
-    
 
   </ul> 
 <h2> Laboratorium 4 - zadania </h2>
@@ -65,7 +62,7 @@ t, x, y, experiment
       <li>Wykonać serię eksperymentów dla różnych parametrów modelu L-V i wykonać analizę danych (6 pkt):
          <ul>
             <li>Należy wykonać co najmniej 4 eksperymenty dla różnych kombinacji parametrów.</li>
-            <li>Dane z wszystkich eksperymentów należy umieścić w jednej tabeli (DataFrame).</li>
+            <li>Dane z wszystkich eksperymentów (pochodzące z osobnych plików CSV) należy umieścić w jednej tabeli (DataFrame).</li>
             <li>Dla każdego eksperymentu wypisać minimalną, maksymalną oraz średnią liczbę drapieżników i ofiar.</li>
             <li>Wyliczyć różnicę między liczbą drapieżników i ofiar jako nową kolumnę.</li>
 	     </ul>
@@ -73,11 +70,10 @@ t, x, y, experiment
 
         <li>Narysować wykresy (8 pkt):
            <ul>
-              <li>Grupę wykresów po jednym dla każdego eksperymentu, pokazujące zależności czasowe dla wszystkich kolumn danych (korzystając z <a href="http://gadflyjl.org/stable/man/layers.html#Stacks-1">Stacks</a>).</li>
+              <li>Grupę wykresów po jednym dla każdego eksperymentu, pokazujące zależności czasowe dla wszystkich kolumn danych (korzystając z <a href="http://gadflyjl.org/stable/lib/geoms/geom_subplot_grid.html">Geom.subplot_grid</a>).</li>
               <li>Złożony wykres przestrzeni fazowej z nałożonymi seriami z wszystkich eksperymentów <a href="https://en.wikipedia.org/wiki/Lotka%E2%80%93Volterra_equations#/media/File:CentralTendencyLV.jpg">przykład</a>.</li>
               <li>Na każdym wykresie należy umieścić podpisy osi oraz legendy, zawierające parametry eksperymentów.</li>
          </ul>
-	  </i>
   </ul>
 
 <P>
@@ -85,6 +81,10 @@ t, x, y, experiment
 <I>Bartosz Baliś, balis at agh edu pl</I>
 <BR>
 <I>Maciej Malawski, malawski at agh edu pl</I>
+<BR>
+<I> Piotr Moczurad</i>
+<BR>
+<I> Maciej Pawlik m pawlik at cyfronet pl</i>
 <BR>
 <I>Katarzyna Rycerz, kzajac at agh edu pl</I>
 <BR>
