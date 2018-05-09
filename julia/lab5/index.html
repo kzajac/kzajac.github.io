@@ -17,17 +17,16 @@
 <hr>
 <h2> Tutorial z wykładu </h2>
 	<ul>
- 	<li> Uwaga: Notebooki Jupitera  renderują się na stronie githuba do html, żeby ściągnąć wersję uruchamialną 
-      dla Jupitera należy wybrać opcję "Raw"
-		<li> <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab5/metaprogramowanie2018.ipynb>Wykład 5</a>
+ 	    <li> Uwaga: Notebooki Jupitera  renderują się na stronie githuba do html, żeby ściągnąć wersję uruchamialną 
+             dla Jupitera należy wybrać opcję "Raw"</li>
+        <li> <a href=https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab5/metaprogramowanie2018.ipynb>Wykład 5</a></li>
 	</ul>
 	<h2> Materiały online</h2>
 	<ul>
           <li><a href="https://docs.julialang.org/en/stable/manual/metaprogramming/">Metaprogramowanie</a> </li>
-	</ul>	  
+          <li><a href="https://int8.io/automatic-differentiation-machine-learning-julia/">Automatic differentiation</a></li>
+	</ul>
 
-<i>
-	TODO
   <h2> Laboratorium 5 - zadania </h2>
   <ul>
   	   <li>Napisać funkcję generowaną, która oblicza średnią harmoniczną (5pkt):
@@ -37,42 +36,27 @@
 			<li>Rozwinięcie nie powinno wykorzystywać pętli czy iterowania po kolekcjach!</li>
 		 </ul>
 	    	<br><br>
-       <li>Napisać makro, które wypełni tablicę elementami ciągu (15 pkt):
-         <ul>
-            <li>Ciąg jest zdefiniowany w postaci wyrażenia opisującego zależność rekurencyjną.</li>
-            <li>Tablica jest wcześniej zaalokowana, zawiera również początkowe wartości ciągu.</li>
-            <li>Przykładowe działanie gotowego makra. Poniższy kod:</li>
-            <code>y = zeros(10)</code><br>
-			<code>y[1:2] = [1, 1]</code><br>
-			<code>@fill_series y[t] = y[t-1] + y[t-2]</code><br>
-			<code>println(y)</code><br>
-			powinien wypisać<br>
-			<code>[1.0,1.0,2.0,3.0,5.0,8.0,13.0,21.0,34.0,55.0]</code><br>
-			<li>Podpowiedzi:
-				<ul>
-					<li>Wyrażęnie opisujące ciąg można łatwo przeglądać rekurencyjnie, w poszukiwaniu operacji odwołania się do tablicy (":ref").</li>
-					<li>Na podstawie wyrażeń w nich zawartych (takich jak np. "t+1", "t-3") można następnie wyznaczyć właściwy początek i koniec iterowania.</li>
-					<li>Samo makro powinno zwracać kod będący pętlą uzupełniającą kolejne wartości.</li>
-				</ul>
-			</li>
-	     </ul>
-	     	<br><br>
+            <li>Napisać algorytm automatycznego różniczkowania w języku Julia (15 pkt): treść zadania znajduje się
+                <a href="https://github.com/kzajac/kzajac.github.io/blob/master/julia/lab5/ZadanieAutoDiff.ipynb">tutaj.</a></li>
   </ul>
-</i>
-<P>
+
+<br><br>
+
+<p>
 <HR>
 <I>Bartosz Baliś, balis at agh edu pl</I>
 <BR>
 <I>Maciej Malawski, malawski at agh edu pl</I>
 <BR>
-<I>Katarzyna Rycerz, kzajac at agh edu pl</I>
+<I>Katarzyna Rycerz, kzajac at agh</I>
 <BR>
-
-<P> <P>
+<I>Piotr Moczurad</I>
+<BR>
+</p>
 
 </DIV>
-</TR>
 </TD>
+</TR>
 </TABLE>
 
 </BODY>
