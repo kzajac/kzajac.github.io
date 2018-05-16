@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 
+Transitional//EN">
+<html>
+<head>
+             
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=utf-8">
+  <title>Algorytmy rownolegle</title>
+    
+</head>
+<body bgcolor="#ffffff">
+<h2>Wprowadzenie do programowania równoległego w języku Julia </h2>
+<h3>Wstęp</h3>      
+<ul>
+<li>Julia jest językiem do  zastosowań naukowych, łączacym wydajność z 
+prostotą programowania. Funkcjonalnie podobny do Matlaba.
+<li> Na zajęciach poznamy możliwości wsparcia dla równoległości w tym 
+języku.
+</ul>
+<h3>Jak używać?</h3>
+<h4> Juliabox online</h4>
+<ul>
+<li> <a href="http://next.juliabox.com"> 
+http://next.juliabox.com</a>
+</ul> 
+<h4> Na własnym sprzęcie </h4>
+<ul>
+<li><a href="http://julialang.org/downloads/"> Strona domowa z instalacją 
+</a>.
+<li>rekomendowana instalacji JuliaPro
+</ul>
+<h4> Na obrazie PCoIP Win 10 ICSR system podstawowy </h4>
+<ul>
+<li>Zaistalowana JuliaPro (do wyboru: edytor Atom, notebook Jupiter albo
+konsola języka Julia)
+</ul>
+<h4> Interaktywnie na Zeusie</h4>
+<ul>
+<li> Na zeusie Julię konfigurujemy poprzez mechanizm modules 
+<pre>
+module add  plgrid/tools/julia/0.6.0
+</pre>          
+<li> Proste testy można zrobić prosząc o interaktywny dostęp do 
+12-rdzeniowego węzła (nie uruchamiać nic na UI !)
+(Uwaga: 
+mozna nawet prosic 
+o  wezly do 64 rdzenii!) :
+
+<pre>
+srun -N 1 --ntasks-per-node=12 -p plgrid -t 0:20:0 --pty /bin/bash
+ 
+</pre>
+<li> Uruchamiamy Julię korzystającą z 12 rdzeni 
+<pre>
+[plgrycerz@n0819-g7x ~]$ module add plgrid/tools/julia/0.6.0
+ plgrid/tools/julia/0.6.0 loaded.
+<br>
+[plgrycerz@n0819-g7x ~]$ julia -p 12
+</pre>          
+<li> Albo uruchamiamy kod z pliku one.jl. Jest przykład 
+map-reduce. Funkcją map jest 
+losowanie liczby 
+typu boolean (dla każdego indeksu), funkcją reduce jest sumowanie. 
+<pre>
+[plgrycerz@n0819-g7x ~]$ cat one.jl 
+tic();
+ nheads = @parallel (+) for i=1:2000000000
+   Int(rand(Bool))
+ end
+s=toc();
+println("Number of Heads: $nheads in $s seconds")
+<br>
+
+[plgrycerz@n0819-g7x ~]$ julia -p 12 one.jl
+</pre>
+<li> Można też uruchomić julię używając mniej rdzeni, a potem dodać je 
+dynamicznie
+<pre>
+[plgrycerz@n0819-g7x ~]$ julia 
+julia> addprocs(1)
+1-element Array{Int64,1}:
+ 2
+</pre>
+<li>Jeśli uruchomimy zadanie w tle
+<pre>
+[plgrycerz@n0819-g7x ~]$ julia -p 12 one.jl &
+</pre>
+ 
+<li>Można zobaczyć jak Julia używa rdzeni poprzez narzędzia 
+<a 
+href="http://superuser.com/questions/191092/linux-command-to-know-the-processor-number-in-which-a-process-is-loaded">top, 
+htop</a>
+albo
+<pre>
+ ps -aF -uplgrycerz
+</pre>
+kolumna PSR to numer rdzenia.
+<pre>
+UID        PID  PPID  C    SZ   RSS PSR STIME TTY          TIME CMD
+root      9742  9741  0 14558  7500   7 10:36 pts/0    00:00:00 /usr/sbin/pbs_mom -p -d /var/torque
+20351     9755  9741  0  6010  2148   1 10:36 pts/0    00:00:00 -bash
+20351     9968  9755 81 2338561 196664 3 10:37 pts/0   00:00:04 julia -p 12 one.jl
+20351     9981  9968 63 2227522 194048 0 10:37 ?       00:00:03 /mnt/auto/software/local/el6/COMMON/julia/0.5.0/bin/julia -Cx86-64 -J/mnt/auto/software/local/el6/COMMON/julia/0.5.0/lib/julia/sys.so --compile=yes --depwarn=yes --bind-to 127.0.0.1 --worker qRHMAHF6ZtGTjgP8
+20351     9983  9968 67 2245990 194468 4 10:37 ?       00:00:03 /mnt/auto/software/local/el6/COMMON/julia/0.5.0/bin/julia -Cx86-64 -J/mnt/auto/software/local/el6/COMMON/julia/0.5.0/lib/julia/sys.so --compile=yes --depwarn=yes --bind-to 127.0.0.1 --worker qRHMAHF6ZtGTjgP8
+20351     9984  9968 67 2262374 194604 11 10:37 ?      00:00:03 /mnt/auto/software/local/el6/COMMON/julia/0.5.0/bin/julia -Cx86-64 -J/mnt/auto/software/local/el6/COMMON/julia/0.5.0/lib/julia/sys.so --compile=yes --depwarn=yes --bind-to 127.0.0.1 --worker qRHMAHF6ZtGTjgP8
+20351     9985  9968 67 2278765 194564 6 10:37 ?       00:00:03 /mnt/auto/software/local/el6/COMMON/julia/0.5.0/bin/julia -Cx86-64 -J/mnt/auto/software/local/el6/COMMON/julia/0.5.0/lib/julia/sys.so --compile=yes --depwarn=yes --bind-to 127.0.0.1 --worker qRHMAHF6ZtGTjgP8
+20351     9986  9968 73 2262383 194644 3 10:37 ?       00:00:03 /mnt/auto/software/local/el6/COMMON/julia/0.5.0/bin/julia -Cx86-64 -J/mnt/auto/software/local/el6/COMMON/julia/0.5.0/lib/julia/sys.so --compile=yes --depwarn=yes --bind-to 127.0.0.1 --worker qRHMAHF6ZtGTjgP8
+20351     9987  9968 66 2245987 194624 5 10:37 ?       00:00:03 /mnt/auto/software/local/el6/COMMON/julia/0.5.0/bin/julia -Cx86-64 -J/mnt/auto/software/local/el6/COMMON/julia/0.5.0/lib/julia/sys.so --compile=yes --depwarn=yes --bind-to 127.0.0.1 --worker qRHMAHF6ZtGTjgP8
+20351     9988  9968 68 2262376 194552 10 10:37 ?      00:00:03 /mnt/auto/software/local/el6/COMMON/julia/0.5.0/bin/julia -Cx86-64 -J/mnt/auto/software/local/el6/COMMON/julia/0.5.0/lib/julia/sys.so --compile=yes --depwarn=yes --bind-to 127.0.0.1 --worker qRHMAHF6ZtGTjgP8
+20351     9989  9968 70 2245990 194636 7 10:37 ?       00:00:03 /mnt/auto/software/local/el6/COMMON/julia/0.5.0/bin/julia -Cx86-64 -J/mnt/auto/software/local/el6/COMMON/julia/0.5.0/lib/julia/sys.so --compile=yes --depwarn=yes --bind-to 127.0.0.1 --worker qRHMAHF6ZtGTjgP8
+20351     9990  9968 66 2295146 194572 9 10:37 ?       00:00:03 /mnt/auto/software/local/el6/COMMON/julia/0.5.0/bin/julia -Cx86-64 -J/mnt/auto/software/local/el6/COMMON/julia/0.5.0/lib/julia/sys.so --compile=yes --depwarn=yes --bind-to 127.0.0.1 --worker qRHMAHF6ZtGTjgP8
+20351     9991  9968 67 2245983 194500 1 10:37 ?       00:00:03 /mnt/auto/software/local/el6/COMMON/julia/0.5.0/bin/julia -Cx86-64 -J/mnt/auto/software/local/el6/COMMON/julia/0.5.0/lib/julia/sys.so --compile=yes --depwarn=yes --bind-to 127.0.0.1 --worker qRHMAHF6ZtGTjgP8
+20351     9992  9968 64 2295141 194632 2 10:37 ?       00:00:03 /mnt/auto/software/local/el6/COMMON/julia/0.5.0/bin/julia -Cx86-64 -J/mnt/auto/software/local/el6/COMMON/julia/0.5.0/lib/julia/sys.so --compile=yes --depwarn=yes --bind-to 127.0.0.1 --worker qRHMAHF6ZtGTjgP8
+20351     9993  9968 65 2295120 194280 8 10:37 ?       00:00:03 /mnt/auto/software/local/el6/COMMON/julia/0.5.0/bin/julia -Cx86-64 -J/mnt/auto/software/local/el6/COMMON/julia/0.5.0/lib/julia/sys.so --compile=yes --depwarn=yes --bind-to 127.0.0.1 --worker qRHMAHF6ZtGTjgP8
+20351    10140  9755  0  6465  1200   5 10:37 pts/0    00:00:00 ps -aF -uplgrycerz
+</pre>
+
+</ul>
+<h4> Tryb wsadowy na zeusie</h4>
+<ul>
+<li>Skrypt PBS
+<pre>
+[plgrycerz@zeus ~]$ cat skrypt_julia.sh
+#!/bin/bash
+##przykladowe opcje dla polecenia sbatch
+#SBATCH -p plgrid
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=12
+module add plgrid/tools/julia/0.6.0
+julia -p 12  one.jl
+</pre>
+<li> Uruchomienie
+<pre>
+ sbatch skrypt_julia.sh
+</pre>
+<li> Potem standardowo sprawdzanie <a 
+href="https://kdm.cyfronet.pl/portal/Podstawy:SLURM">statusu 
+zadania i wyniku </a> 
+<li> Domyślnie plik wynikowy to  slurm-JOBID.out
+</ul>
+</ul>
+<h4> Zadanie </h4>
+<ul>
+<li> Uwaga: Notebooki Jupitera renderują się na stronie 
+githuba do html, zeby sciagnąć wersję uruchamialną dla Jupitera należy 
+wybrać opcję "Raw" 
+<li><a href="https://github.com/kzajac/AR/blob/master/ARLab4.ipynb"> 
+Notebook z zadaniami </a>	
+<li> Termin 4 grudnia.
+</ul>
+ kzajac [at] agh.edu.pl
+     
+ 
+</body>
+</html>
