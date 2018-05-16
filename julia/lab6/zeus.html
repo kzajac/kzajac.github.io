@@ -12,7 +12,15 @@
 <TD ALIGN=CENTER>
 <DIV ALIGN=left>
  <h4> Uzyskanie dostępu do klastra Zeus </h4>
- <a href="http://home.agh.edu.pl/~kzajac/dydakt/ar/lab1/plgrid.html"> Instrukcja </a>. 
+ <ul>
+ <li><a href="http://home.agh.edu.pl/~kzajac/dydakt/ar/lab1/plgrid.html"> Instrukcja </a>. 
+ <li><br>
+Uwaga: nalezy używać systemu kolejkowego  <a 
+href="https://kdm.cyfronet.pl/portal/Podstawy:SLURM">SLURM</a>  i
+stosować się do <a 
+href="https://kdm.cyfronet.pl/portal/Zeus:Podstawy#Zasady_obowi.C4.85zuj.C4.85ce_na_klastrze_Zeus">zasad</a> 
+!
+    </font></strong></ul>
 <h4> Uruchamianie języka Julia interaktywnie na Zeusie</h4>
 <ul>
 <li> Na zeusie Julię konfigurujemy poprzez mechanizm modules 
@@ -97,7 +105,7 @@ root      9742  9741  0 14558  7500   7 10:36 pts/0    00:00:00 /usr/sbin/pbs_mo
 </ul>
 <h4> Tryb wsadowy na zeusie</h4>
 <ul>
-<li>Skrypt PBS
+<li>Skrypt SLURM
 <pre>
 [plgrycerz@zeus ~]$ cat skrypt_julia.sh
 #!/bin/bash
