@@ -42,7 +42,7 @@
 	  <li>(4 pkt) Napisać program, w którym działają trzy zadania (w tym samym procesie), z których 
 	       każde wypisuje w pętli kilka razy jedną liczbę (pierwsze "1", drugie "2", trzecie "3"). Proszę
 		  zapewnić wypisywanie liczb w kolejności 1 2 3 1 2 3 .... itd., <b>niezależnie od kolejności 
-		  uruchamiania zadań</b>. W rozwiązaniu nie można używać kanałów ani mechanizmów synchronizacji takich jak lcok. 
+		  uruchamiania zadań</b>. W rozwiązaniu nie można używać kanałów ani mechanizmów synchronizacji takich jak lock. 
 		  Uwaga: wysokość oceny będzie zależeć od poprawności i prostoty implementacji (im prostsza tym lepsza). 
 
 		  <P>
@@ -62,12 +62,12 @@
 		  wykładzie w sekcji <I>Zdalne kanały komunikacji pomiędzy zadaniami na różnych workerach</I>.
 		  
 		  <P>
-		  Cały zbiór Julii reprezentowany jest tablica dwuwymiarową. W wersji równoległej należy tę tablicę podzielić na
+		  Cały zbiór Julii reprezentowany jest tablicą dwuwymiarową. W wersji równoległej należy tę tablicę podzielić na
 		  "paski" -- będzie to pula zadań (jobs) do przeliczenia. Z drugiej strony będzie działała pewna liczba workerów
-		  (procesy rozproszone na kilka węzłów), którzy będą obliczali te zadania i zwracali wyniki. W przypadku implementacji (2)
-			  i (3) należy zapewnic konfigurowalność ziarnistości zadań, tj. jak szeroki jest "pasek" do przeliczenia. 
-			  Minimalna szerokość wynosi 1 (jedno zadanie = 1 wiersz tablicy), maksymalna szerokość wynosi tyle, żeby
-			  liczba zadań była taka jak liczba workerów. 
+		  (procesy, być może rozproszone na kilka węzłów), którzy będą obliczali te zadania i zwracali wyniki. W przypadku 
+			  implementacji (2) i (3) należy umożliwić konfigurowalność ziarnistości zadań, tj. jak szeroki jest "pasek" 
+			  do przeliczenia. Minimalna szerokość wynosi 1 (jedno zadanie = 1 wiersz tablicy), maksymalna szerokość wynosi 
+			  tyle, żeby liczba zadań była równa liczbie workerów. 
 		  
 		  Proszę eksperymentalnie zmierzyć czas wykonania implementacji sekwencyjnej oraz każdego wariantu implementacji równoległej 
 			  w zależności od liczby workerów, a także w zależności od ziarnistości zadań. Wyniki porównania proszę przedstawić na 
