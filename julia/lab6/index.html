@@ -39,29 +39,47 @@
 <i>
 <h2> Laboratorium 6 - zadania </h2>
   <ol>
-	  
-
-	  <li>(6 pkt) Napisać program, w którym działają trzy zadania (w tym samym procesie), z których 
-	       każde wypisuje w pętli kilka razy kolejną liczbę (pierwsze "1", drugie "2", trzecie "3"). Proszę
-		  zapewnić, żeby liczby były wypisywane zawsze w kolejności 1 2 3 1 2 3 .... itd., <b>niezależnie od kolejności 
-		  uruchamiania zadań</b>. Uwaga: wysokość oceny będzie zależeć od poprawności i prostoty implementacji 
-		  (im prostsza tym lepsza). 
+	  <li>(4 pkt) Napisać program, w którym działają trzy zadania (w tym samym procesie), z których 
+	       każde wypisuje w pętli kilka razy jedną liczbę (pierwsze "1", drugie "2", trzecie "3"). Proszę
+		  zapewnić wypisywanie liczb w kolejności 1 2 3 1 2 3 .... itd., <b>niezależnie od kolejności 
+		  uruchamiania zadań</b>. W rozwiązaniu nie można używać kanałów ani mechanizmów synchronizacji takich jak lcok. 
+		  Uwaga: wysokość oceny będzie zależeć od poprawności i prostoty implementacji (im prostsza tym lepsza). 
 
 		  <P>
-	  <li>(14 pkt) Mając dany <A HREF=julia_set.jl>program</A> obliczający i rysujący 
-		  <A HREF="https://en.wikipedia.org/wiki/Julia_set">zbiór Julii</A>, napisać jego wersję równoległą w trzech wariantach:
-		  (1) wykorzystując parallel for, (2) wykorzystując pmap, (3) w oparciu o mechanizm ręcznego rozdzielania zadań pomiędzy 
-		  workerów objaśniony na wykładzie i opisany w dokumentacji Julii w sekcji 
-		  <A HREF="https://docs.julialang.org/en/stable/manual/parallel-computing/#id2">Shared arrays</A> 
-		  Proszę zmierzyć czas implementacji sekwencyjnej oraz każdego wariantu implementacji równoległej w zależności od liczby 
-		  workerów (od 1 do liczby rdzeni w procesorze). Wyniki porównania proszę przedstawić na wykresie. 
+	   <li>(4 pkt) Napisać program, w którym działają następujące zadania:
+		   <ul>
+			   <li>Zadanie producenta, który wyszukuje pliki (wszystkie lub z określonym rozszerzeniem) w zadanym drzewie 
+				   katalogów i wpisuje ich nazwy do kanału. 
+			   <li>Kilka zadań konsumentów, którzy obliczają liczbę linii w danym pliku (pobierając jego nazwę z kanału). 
+		   </ul>
+		   Na końcu program powinien wypisywać całkowitą liczbę linii we wszystkich plikach. 
+		   <P>
+			  
+	  <li>(12 pkt) Mając dany <A HREF=julia_set.jl>program</A> obliczający 
+		  <A HREF="https://en.wikipedia.org/wiki/Julia_set">zbiór Julii</A> i zapisujący jego graficzną reprezentację w pliku, 
+		  napisać jego wersję równoległą w trzech wariantach:
+		  (1) wykorzystując parallel for, (2) wykorzystując pmap, (3) wykorzystując mechanizm zdalnych kanałów opisany na 
+		  wykładzie w sekcji <I>Zdalne kanały komunikacji pomiędzy zadaniami na różnych workerach</I>.
+		  
+		  <P>
+		  Cały zbiór Julii reprezentowany jest tablica dwuwymiarową. W wersji równoległej należy tę tablicę podzielić na
+		  "paski" -- będzie to pula zadań (jobs) do przeliczenia. Z drugiej strony będzie działała pewna liczba workerów
+		  (procesy rozproszone na kilka węzłów), którzy będą obliczali te zadania i zwracali wyniki. W przypadku implementacji (2)
+			  i (3) należy zapewnic konfigurowalność ziarnistości zadań, tj. jak szeroki jest "pasek" do przeliczenia. 
+			  Minimalna szerokość wynosi 1 (jedno zadanie = 1 wiersz tablicy), maksymalna szerokość wynosi tyle, żeby
+			  liczba zadań była taka jak liczba workerów. 
+		  
+		  Proszę eksperymentalnie zmierzyć czas wykonania implementacji sekwencyjnej oraz każdego wariantu implementacji równoległej 
+			  w zależności od liczby workerów, a także w zależności od ziarnistości zadań. Wyniki porównania proszę przedstawić na 
+			  wykresie. 
+			  
 		  <P>Uwagi:</P>
 		  <UL>
 			  <LI>Pomocny może być <A HREF="http://distrustsimplicity.net/articles/mandelbrot-speed-comparison/">przykład</A> 
 				  pokazujący równoległą	implementację zbioru Mandelbrota w oparciu o parallel for. </LI>
-			  <LI>Pojedyncze zadanie powinno obliczać jedną lub (najlepiej) więcej kolumn. Jeśli zadania będą zbyt drobne,
+			  <!--<LI>Pojedyncze zadanie powinno obliczać jedną lub (najlepiej) więcej kolumn. Jeśli zadania będą zbyt drobne,
 				  to koszt wynikający z narzutu zrównoleglania (przełączanie między zadaniami, komunikacja między
-				  procesami) przewyższy zyski z podziału pracy na wiele procesów.</LI>
+				  procesami) przewyższy zyski z podziału pracy na wiele procesów.</LI>-->
 		   </UL>
 	
 			  </ol>
@@ -76,8 +94,11 @@
 <BR>
 <I>Maciej Malawski, malawski at agh edu pl</I>
 <BR>
+<I>Maciej Pawlik, m pawlik at cyfronet pl</I>
+<BR>
 <I>Katarzyna Rycerz, kzajac at agh edu pl</I>
 <BR>
+<I>Piotr Moczurad</I>
 
 <P> <P>
 
