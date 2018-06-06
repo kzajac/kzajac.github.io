@@ -65,14 +65,14 @@
 		  <P>
 		  Cały zbiór Julii reprezentowany jest tablicą dwuwymiarową. W wersji równoległej należy tę tablicę podzielić na
 		  "paski" -- będzie to pula zadań (jobs) do przeliczenia. Z drugiej strony będzie działała pewna liczba workerów
-		  (procesy, być może rozproszone na kilka węzłów), którzy będą obliczali te zadania i zwracali wyniki. W przypadku 
+		  (procesy, być może rozproszone na kilka węzłów), którzy będą wykonywali te zadania i zwracali wyniki. W przypadku 
 			  implementacji (2) i (3) należy umożliwić konfigurowalność ziarnistości zadań, tj. jak szeroki jest "pasek" 
 			  do przeliczenia. Minimalna szerokość wynosi 1 (jedno zadanie = 1 wiersz tablicy), maksymalna szerokość wynosi 
 			  tyle, żeby liczba zadań była równa liczbie workerów. 
 		  
 		  Proszę eksperymentalnie zmierzyć czas wykonania implementacji sekwencyjnej oraz każdego wariantu implementacji równoległej 
-			  w zależności od liczby workerów, a także w zależności od ziarnistości zadań. Wyniki porównania proszę przedstawić na 
-			  wykresie. 
+			  w zależności od liczby workerów, a także w zależności od ziarnistości zadań. Wyniki eksperymentów proszę zapisać 
+			  w postaci DataFrame, a następnie przedstawić na wykresach. 
 			  
 		  <P>Uwagi:</P>
 		  <UL>
@@ -97,6 +97,8 @@
 <lI><a href=https://kdm.cyfronet.pl/portal/Podstawy:SLURM> Systemu kolejkowego SLURM </a>
 <li> <a href="https://docs.julialang.org/en/stable/manual/parallel-computing#ClusterManagers-1">SSH Managera w Julii</a>
   </ul>
+Rozszerzona wersja tegg zadania może być tematem pracy inżynierskiej dotyczącej obliczeń równoległych w Julii 
+	z wykorzystaniem rozproszonych infrastruktur obliczeniowych (klastrów HPC i chmur). 
 	
 <P>
 	
